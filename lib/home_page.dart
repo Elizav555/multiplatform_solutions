@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:html/parser.dart' show parse;
 import 'package:http/http.dart' as http;
 
+import 'app_platform.dart';
+
 class MyResponse {
   String body = '';
   String headers = '';
@@ -20,6 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController _inputController = TextEditingController();
   MyResponse _myResponse = MyResponse();
   bool _isLoading = false;
+  String operatingSystem = AppPlatform.platform.toString();
 
   void _getPage(String url) async {
     try {
@@ -74,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
                 const SizedBox(
-                  height: 40.0,
+                  height: 8.0,
                 ),
                 if (_isLoading)
                   const Center(
@@ -84,8 +87,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   Center(child: Text(_myResponse.error ?? ''))
                 else
                   Expanded(
-                      child: SingleChildScrollView(
-                          child: Column(
+                      child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         _myResponse.headers,
@@ -108,11 +111,25 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
                       const SizedBox(height: 20),
-                      Text(
-                        _myResponse.body,
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Text(
+                            _myResponse.body,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Application running on $operatingSystem',
+                          style: const TextStyle(
+                            fontSize: 21.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ],
-                  ))),
+                  )),
               ],
             ),
           ),
