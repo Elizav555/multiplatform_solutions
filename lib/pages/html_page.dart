@@ -11,14 +11,14 @@ class MyResponse {
   String? error;
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class HTMLPage extends StatefulWidget {
+  const HTMLPage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HTMLPage> createState() => _HTMLPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HTMLPageState extends State<HTMLPage> {
   final TextEditingController _inputController = TextEditingController();
   MyResponse _myResponse = MyResponse();
   bool _isLoading = false;

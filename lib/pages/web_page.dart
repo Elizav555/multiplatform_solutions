@@ -6,14 +6,14 @@ import '../webview/mock_webview.dart'
     if (dart.library.io) '../webview/non_web_webview.dart'
     if (dart.library.html) '../webview/web_webview.dart';
 
-class ThirdPage extends StatefulWidget {
-  const ThirdPage({Key? key}) : super(key: key);
+class WebPage extends StatefulWidget {
+  const WebPage({Key? key}) : super(key: key);
 
   @override
-  State<ThirdPage> createState() => _ThirdPageState();
+  State<WebPage> createState() => _WebPageState();
 }
 
-class _ThirdPageState extends State<ThirdPage> {
+class _WebPageState extends State<WebPage> {
   final TextEditingController _inputController = TextEditingController();
   bool _isLoading = false;
   Widget _webView = const Text("Enter Link");
