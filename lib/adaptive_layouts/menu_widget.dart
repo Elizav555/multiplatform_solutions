@@ -11,11 +11,14 @@ class MenuWidget extends StatelessWidget {
       color: Colors.lightBlueAccent,
       child: Align(
         alignment: alignment,
-        child: const Text(
-          'Adaptive App',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
+        child: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Text(
+            'Adaptive App',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
           ),
         ),
       ),
