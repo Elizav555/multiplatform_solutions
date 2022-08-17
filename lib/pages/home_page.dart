@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:html/parser.dart' show parse;
 import 'package:http/http.dart' as http;
 
-import 'app_platform.dart';
+import '../utils/app_platform.dart';
 
 class MyResponse {
   String body = '';
