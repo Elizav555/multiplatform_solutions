@@ -10,22 +10,39 @@ class ListCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-      ),
-      elevation: 5,
-      color: Colors.lightBlueAccent,
-      child: ListTile(
-        title: Column(
+    return GestureDetector(
+      onTap: () {
+        showPopover(
+          context: context,
+          transitionDuration: const Duration(milliseconds: 100),
+          bodyBuilder: (context) => const PopoverWidget(),
+          onPop: () {},
+          direction: PopoverDirection.bottom,
+          width: 300,
+          height: 200,
+          arrowHeight: 15,
+          arrowWidth: 30,
+          arrowDxOffset: 40,
+        );
+      },
+      child: Card(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+        ),
+        elevation: 5,
+        color: Colors.lightBlueAccent,
+        child: Column(
           children: [
             Expanded(
               flex: 2,
-              child: CircleAvatar(
-                  radius: 100,
-                  foregroundImage: AssetImage(
-                    corgi.image,
-                  )),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: CircleAvatar(
+                    radius: 100,
+                    foregroundImage: AssetImage(
+                      corgi.image,
+                    )),
+              ),
             ),
             Expanded(
               flex: 1,
@@ -47,20 +64,6 @@ class ListCard extends StatelessWidget {
             ),
           ],
         ),
-        onTap: () {
-          showPopover(
-            context: context,
-            transitionDuration: const Duration(milliseconds: 100),
-            bodyBuilder: (context) => const PopoverWidget(),
-            onPop: () {},
-            direction: PopoverDirection.bottom,
-            width: 300,
-            height: 200,
-            arrowHeight: 15,
-            arrowWidth: 30,
-            arrowDxOffset: 40,
-          );
-        },
       ),
     );
   }
