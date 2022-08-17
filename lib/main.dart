@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:multiplatform_solutions/pages/third_task.dart';
+import 'package:multiplatform_solutions/pages/adaptive_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ThirdPage(),
+      home: const AdaptivePage(),
     );
   }
 }
